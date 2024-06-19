@@ -1,5 +1,7 @@
 import pandas as pd
 import re
+import os
+import time
 
 # Чтение исходных данных из txt-файла
 with open('Appendix.txt', 'r') as file:
@@ -33,4 +35,11 @@ xlsx_file = "Price.xlsx"
 # Записываем данные в Excel
 df.to_excel(xlsx_file, index=False)
 
+# Получаем абсолютный путь к файлу
+file_path = os.path.abspath(xlsx_file)
+
 print("Данные успешно записаны в файл", xlsx_file)
+print("Файл сохранен в директории:", file_path)
+
+# Задержка в 3 секунды перед закрытием программы
+time.sleep(3)
